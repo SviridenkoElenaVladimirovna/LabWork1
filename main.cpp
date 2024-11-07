@@ -14,9 +14,11 @@ int main() {
 
     BMPWriter::saveToFile(BMPService::rotateClockwise(image), clockwiseFilepath);
 
-    BMPWriter::saveToFile(BMPService::rotateCounterclockwise(image), counterclockwiseFilepath);
+    BMPImage rotatedImage = BMPService::rotateCounterclockwise(image);
 
-    BMPWriter::saveToFile(BMPService::applyGaussianFilter(image), gaussianFilterFilepath);
+    BMPWriter::saveToFile(rotatedImage, counterclockwiseFilepath);
+    
+    BMPWriter::saveToFile(BMPService::applyGaussianFilter(rotatedImage), gaussianFilterFilepath);
 
     std::cout << "Images successfully processed and saved" << std::endl;
     return 0;
