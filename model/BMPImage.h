@@ -7,8 +7,8 @@ added multithreading
 #define BMPIMAGE_H
 
 #include <vector>
-#include "BMPHeader.h"
-#include "BMPInfoHeader.h"
+#include "../model/BMPHeader.h"
+#include "../model/BMPInfoHeader.h"
 
 class BMPImage {
 private:

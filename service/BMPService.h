@@ -6,7 +6,7 @@ added multithreading
 #ifndef BMPSERVICE_H
 #define BMPSERVICE_H
 
-#include "BMPImage.h"
+#include "../model/BMPImage.h"
 
 class BMPService {
 public:

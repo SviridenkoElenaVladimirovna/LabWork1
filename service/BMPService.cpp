@@ -3,7 +3,7 @@ Sviridenko Elena st130482@student.spbu.ru
 Loads and processes a BMP raster image, rotates the image 90 clockwise and counterclockwise, applies a Gaussian filter to the image
 added multithreading
 */
-#include "BMPService.h"
+#include "../service/BMPService.h"
 
 BMPImage BMPService::rotateClockwise(BMPImage& originalImage) {
     const BMPInfoHeader originalInfoHeader = originalImage.getInfoHeader();

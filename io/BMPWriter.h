@@ -8,7 +8,7 @@ added multithreading
 
 #include <string>
 #include <fstream>
-#include "BMPImage.h"
+#include "../model/BMPImage.h"
 
 class BMPWriter {
 public:

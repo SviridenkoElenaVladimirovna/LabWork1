@@ -6,8 +6,8 @@ added multithreading
 #ifndef BMPMULTITHREADSERVICE_H
 #define BMPMULTITHREADSERVICE_H
 
-#include "BMPImage.h"
-#include "ThreadPool.h"
+#include "../model/BMPImage.h"
+#include "../utils/ThreadPool.h"
 
 class BMPMultiThreadService {
 private:

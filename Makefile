@@ -1,27 +1,31 @@
 PROJECT = Labwork1
 
-IDIR = .
 CXX = g++
-CXXFLAGS = -I$(IDIR) -std=c++20 -O3 -pthread
+CXXFLAGS = -std=c++20 -O3 -pthread -I. -Imodel -Iio -Iservice -Iutils
 LDFLAGS = -pthread -lm
 
-DEPS = BMPHeader.h BMPImage.h BMPInfoHeader.h BMPReader.h BMPService.h ThreadPool.h BMPWriter.h BMPMultiThreadService.h
-OBJ = main.o BMPImage.o BMPReader.o BMPService.o BMPWriter.o BMPMultiThreadService.o
+SRC = main.cpp \
+      $(wildcard model/*.cpp) \
+      $(wildcard io/*.cpp) \
+      $(wildcard service/*.cpp) \
+      $(wildcard utils/*.cpp)
+
+OBJ = $(SRC:.cpp=.o)
 
 .PHONY: default all clean cleanall
 
 default: all
 
-%.o: %.cpp $(DEPS)
-	$(CXX) -c $< -o $@ $(CXXFLAGS)
+all: $(PROJECT)
 
 $(PROJECT): $(OBJ)
 	$(CXX) -o $@ $^ $(LDFLAGS)
 
-all: $(PROJECT)
+%.o: %.cpp
+	$(CXX) -c $< -o $@ $(CXXFLAGS)
 
 clean:
-	rm -f *.o *~ core
+	rm -f *.o model/*.o io/*.o service/*.o utils/*.o *~ core
 
 cleanall: clean
 	rm -f $(PROJECT)

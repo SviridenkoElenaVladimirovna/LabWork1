@@ -7,11 +7,11 @@ added multithreading
 #include <iomanip>
 #include <chrono>
 #include <vector>
-#include "BMPImage.h"
-#include "BMPMultiThreadService.h"
-#include "BMPReader.h"
-#include "BMPService.h"
-#include "BMPWriter.h"
+#include "../model/BMPImage.h"
+#include "../service/BMPMultiThreadService.h"
+#include "../io/BMPReader.h"
+#include "../service/BMPService.h"
+#include "../io/BMPWriter.h"
 
 void printRealizationsComparing(
     std::vector<long> oneThreadElapsedTime,
