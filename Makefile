@@ -1,35 +1,25 @@
-
 PROJECT = Labwork1
 
-
 IDIR = .
-CXX=g++
+CXX = g++
+CXXFLAGS = -I$(IDIR) -std=c++20 -O3 -pthread
+LDFLAGS = -pthread -lm
 
-CXXFLAGS = -I$(IDIR)
+DEPS = BMPHeader.h BMPImage.h BMPInfoHeader.h BMPReader.h BMPService.h ThreadPool.h BMPWriter.h BMPMultiThreadService.h
+OBJ = main.o BMPImage.o BMPReader.o BMPService.o BMPWriter.o BMPMultiThreadService.o
 
-ODIR = OBJ
+.PHONY: default all clean cleanall
 
-LDIR = ../lib
-
-LIBS = -lm
-
-DEPS = BMPHeader.h BMPImage.h BMPInfoHeader.h BMPReader.h BMPService.h BMPWriter.h
-
-OBJ = main.o BMPImage.o BMPReader.o BMPService.o BMPWriter.o
-
-.PHONY: default
 default: all
 
 %.o: %.cpp $(DEPS)
-	$(CXX) -c -o $@ $< $(CXXFLAGS)
+	$(CXX) -c $< -o $@ $(CXXFLAGS)
 
 $(PROJECT): $(OBJ)
-	$(CXX) -o $@ $^ $(CXXFLAGS) $(LIBS)
-
+	$(CXX) -o $@ $^ $(LDFLAGS)
 
 all: $(PROJECT)
 
-.PHONY: clean
 clean:
 	rm -f *.o *~ core
 

@@ -1,6 +1,7 @@
 /*
 Sviridenko Elena st130482@student.spbu.ru
 Loads and processes a BMP raster image, rotates the image 90 clockwise and counterclockwise, applies a Gaussian filter to the image
+added multithreading
 */
 #include "BMPReader.h"
 #include <iostream>
@@ -21,9 +22,9 @@ BMPImage BMPReader::loadFromFile(const std::string& filepath) {
 
     if (infoHeader.width <= 0 || infoHeader.height <= 0) {
         throw std::runtime_error(
-            "Incorrect image dimensions\n"
-            " width:" + std::to_string(infoHeader.width) + "\n"
-            " height: " + std::to_string(infoHeader.height) + "\n");
+                "Incorrect image dimensions\n"
+                " width:" + std::to_string(infoHeader.width) + "\n"
+                                                               " height: " + std::to_string(infoHeader.height) + "\n");
     }
 
     size_t numberOfPixels = infoHeader.width * infoHeader.height * (infoHeader.bitsPerPixel / 8);
