@@ -1,8 +1,3 @@
-/*
-Sviridenko Elena st130482@student.spbu.ru
-Loads and processes a BMP raster image, rotates the image 90 clockwise and counterclockwise, applies a Gaussian filter to the image
-added multithreading
-*/
 #ifndef THREADPOOL_H
 #define THREADPOOL_H
 
@@ -19,12 +14,16 @@ added multithreading
 #include <cassert>
 #include <utility>
 #include <functional>
-
+/**
+ * @brief Status of a task in the queue.
+ */
 enum class TaskStatus {
     in_q,
     completed
 };
-
+/**
+ * @brief Represents a task with optional return value.
+ */
 class Task {
 public:
     template <typename FuncRetType, typename ...Args, typename ...FuncTypes>
@@ -62,13 +61,17 @@ private:
     std::any any_func_result;
     bool is_void;
 };
-
+/**
+ * @brief Stores information about a task, including its status and result.
+ */
 struct TaskInfo {
     TaskStatus status = TaskStatus::in_q;
     std::any result;
 };
 
-
+/**
+ * @brief A thread pool for executing tasks concurrently.
+ */
 class ThreadPool {
 public:
     ThreadPool(const uint32_t num_threads) {
@@ -178,4 +181,4 @@ private:
     std::atomic<uint64_t> cnt_completed_tasks{ 0 };
 };
 
-#endif 
+#endif

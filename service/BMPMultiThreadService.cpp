@@ -1,10 +1,12 @@
 /*
 Sviridenko Elena st130482@student.spbu.ru
 Loads and processes a BMP raster image, rotates the image 90 clockwise and counterclockwise, applies a Gaussian filter to the image
-added multithreading
 */
-#include "../service/BMPMultiThreadService.h"
-
+#include "BMPMultiThreadService.h"
+/**
+ * @file BMPMultiThreadService.cpp
+ * @brief Implementation of BMPMultiThreadService class with multithreaded processing of BMP images.
+ */
 BMPMultiThreadService::BMPMultiThreadService(const int numberOfThreads) {
     threadPool = new ThreadPool(numberOfThreads);
 }

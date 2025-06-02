@@ -3,6 +3,12 @@ Sviridenko Elena st130482@student.spbu.ru
 Loads and processes a BMP raster image, rotates the image 90 clockwise and counterclockwise, applies a Gaussian filter to the image
 added multithreading
 */
+
+/**
+ * @file BMPReader.cpp
+ * @brief Implements BMPReader for reading BMP files.
+ */
+
 #include "../io/BMPReader.h"
 #include <iostream>
 #include <stdexcept>
@@ -28,10 +34,10 @@ BMPImage BMPReader::loadFromFile(const std::string& filepath) {
     }
 
     size_t numberOfPixels = infoHeader.width * infoHeader.height * (infoHeader.bitsPerPixel / 8);
-    std::cout<<"amount of memory allocated for pixels "<<numberOfPixels <<"\n";
+    std::cout << "amount of memory allocated for pixels " << numberOfPixels << "\n";
     std::vector<uint8_t> pixels(numberOfPixels);
 
-    inFile.read(reinterpret_cast<char*>(& pixels[0]), numberOfPixels);
+    inFile.read(reinterpret_cast<char*>(&pixels[0]), numberOfPixels);
     inFile.close();
 
     return BMPImage(header, infoHeader, pixels);

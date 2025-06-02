@@ -1,13 +1,15 @@
 /*
 Sviridenko Elena st130482@student.spbu.ru
 Loads and processes a BMP raster image, rotates the image 90 clockwise and counterclockwise, applies a Gaussian filter to the image
-added multithreading
 */
 #ifndef BMPSERVICE_H
 #define BMPSERVICE_H
 
-#include "../model/BMPImage.h"
-
+#include "BMPImage.h"
+/**
+ * @class BMPService
+ * @brief Static class for performing basic image processing operations on BMP images.
+ */
 class BMPService {
 public:
     static BMPImage rotateClockwise(BMPImage& image);
