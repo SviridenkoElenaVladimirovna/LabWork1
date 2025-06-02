@@ -15,7 +15,8 @@ The amount of allocated memory for pixels: **2,239,488 bytes**.
 |     5 ms   |    5 ms   |
 |    11 ms   |    4 ms   |
 |    11 ms   |   10 ms   |
-![](report_file/First_run.jpeg)
+
+![](First_run.jpeg)
 
 
 #### Second run:
@@ -26,7 +27,7 @@ The amount of allocated memory for pixels: **2,239,488 bytes**.
 |     6 ms   |    3 ms   |
 |     9 ms   |   11 ms   |
 
-![](report_file/Second_run.jpeg)
+![](Second_run.jpeg)
 
 **Conclusion**: multithreaded implementation shows improvement in processing time in most cases.
 
