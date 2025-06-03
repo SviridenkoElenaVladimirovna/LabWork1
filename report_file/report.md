@@ -41,3 +41,8 @@ The experiments were conducted in the **VirtualBox** environment. This may have 
 - There may be **additional overhead** for synchronization and thread context switching within the virtual environment.
 
 **Conclusion**: running a multithreaded implementation in VirtualBox may not reflect the real performance of code on a physical machine. To accurately estimate efficiency, it is recommended to run the program on a real system without virtualization.
+
+## Performance Note
+Running an application with multithreading added on windows shows a 2X increase in execution speed. The difference in execution speed is due to differences in the environment in which the application was run
+
+![](windows_run.jpeg)
