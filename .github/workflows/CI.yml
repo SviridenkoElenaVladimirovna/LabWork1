@@ -22,15 +22,14 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y g++ make libgtest-dev cmake
 
-    - name: Build Google Test libraries
-      run: |
-        cd /usr/src/googletest/googletest
-        sudo cmake .
-        sudo make
-        sudo cp lib/libgtest*.a /usr/lib/
+    - name: Build Tests
+      run: make test
 
-    - name: Build Project
-      run: make
+    - name: Upload Test Binary
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-binary
+        path: test-Labwork1
 
   run_tests:
     runs-on: ubuntu-latest
@@ -40,20 +39,11 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
-    - name: Install Dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y g++ make libgtest-dev cmake
-
-    - name: Build Google Test libraries
-      run: |
-        cd /usr/src/googletest/googletest
-        sudo cmake .
-        sudo make
-        sudo cp lib/libgtest*.a /usr/lib/
-
-    - name: Build Tests
-      run: make test
+    - name: Download Test Binary
+      uses: actions/download-artifact@v3
+      with:
+        name: test-binary
+        path: ./
 
     - name: Run Tests
       run: ./test-Labwork1
