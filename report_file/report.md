@@ -46,3 +46,15 @@ The experiments were conducted in the **VirtualBox** environment. This may have 
 Running an application with multithreading added on windows shows a 2X increase in execution speed. The difference in execution speed is due to differences in the environment in which the application was run
 
 ![](windows_run.jpeg)
+
+# Test Description
+
+| Test | Description |
+|------|-------------|
+| `RotateClockwise_MultiEqualsSingleThreaded` | Checks that multithreaded and single-threaded clockwise rotation produce the same result. |
+| `RotateCounterclockwise_MultiEqualsSingleThreaded` | Checks the same for counterclockwise rotation. |
+| `GaussianFilter_MultiEqualsSingleThreaded` | Compares the application of the Gaussian filter in single-threaded and multi-threaded mode. |
+| `RotateClockwiseThenCounterclockwise_EqualsOriginal` | After rotating clockwise and then counterclockwise, the image should match the original. |
+| `RotateClockwiseFourTimes_EqualsOriginal` | Four consecutive clockwise rotations should return the image to its original state. |
+| `ApplyGaussianTwice_NotEqualToOnce` | Check that applying the Gaussian filter twice changes the image compared to applying it once. |
+| `RotateAndSaveImage` | Rotating the image, saving and reloading should produce identical results. |

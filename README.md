@@ -21,3 +21,9 @@ make
 
 ./Labwork1
 
+## Build Tests
+make test
+
+
+## Run Tests
+./test-Labwork1
