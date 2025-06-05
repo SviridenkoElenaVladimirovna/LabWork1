@@ -47,5 +47,8 @@ jobs:
         name: test-binary
         path: ./
 
+    - name: Make binary executable
+      run: chmod +x ./test-Labwork1
+
     - name: Run Tests
       run: ./test-Labwork1
