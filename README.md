@@ -7,7 +7,7 @@
 st130482@student.spbu.ru
 
 ## Description
-LabWork1 - Loads and processes a BMP raster image, rotates the image 90 clockwise and counterclockwise, applies a Gaussian filter to the image
+LabWork1 - Loads and processes a BMP raster image, rotates the image 90 clockwise and counterclockwise, applies a Gaussian filter to the image added multithreading
 
 ## Build
 
@@ -15,12 +15,15 @@ LabWork1 - Loads and processes a BMP raster image, rotates the image 90 clockwis
 
 make
 
-## Before running
-Before starting application, write your path to the original image (filepath) and paths for saving new ones (clockwiseFilepath, counterclockwiseFilepath, gaussianFilterFilepath)
-
 ## Run
 
 ### Demo application
 
 ./Labwork1
 
+## Build Tests
+make test
+
+
+## Run Tests
+./test-Labwork1

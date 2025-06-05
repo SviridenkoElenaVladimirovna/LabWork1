@@ -6,7 +6,10 @@ Loads and processes a BMP raster image, rotates the image 90 clockwise and count
 #define BMPSERVICE_H
 
 #include "BMPImage.h"
-
+/**
+ * @class BMPService
+ * @brief Static class for performing basic image processing operations on BMP images.
+ */
 class BMPService {
 public:
     static BMPImage rotateClockwise(BMPImage& image);
@@ -14,4 +17,4 @@ public:
     static BMPImage applyGaussianFilter(BMPImage& image);
 };
 
-#endif 
+#endif

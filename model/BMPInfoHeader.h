@@ -1,13 +1,25 @@
 /*
 Sviridenko Elena st130482@student.spbu.ru
 Loads and processes a BMP raster image, rotates the image 90 clockwise and counterclockwise, applies a Gaussian filter to the image
+added multithreading
 */
+
+/**
+ * @file BMPInfoHeader.h
+ * @brief Defines the BMP info header structure (DIB header).
+ */
+
 #ifndef BMPINFOHEADER_H
 #define BMPINFOHEADER_H
+
 #include <cstdint>
 
 #pragma pack(push, 1)
-struct  BMPInfoHeader {
+/**
+ * @struct BMPInfoHeader
+ * @brief A structure describing information about the image
+ */
+struct BMPInfoHeader {
     uint32_t headerSize;
     int32_t width;
     int32_t height;

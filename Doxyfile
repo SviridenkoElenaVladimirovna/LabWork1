@@ -1,0 +1,6 @@
+PROJECT_NAME = "Labwork1"
+INPUT = io model service utils
+RECURSIVE = YES
+EXCLUDE = cmake-build-debug test
+GENERATE_HTML = YES
+GENERATE_LATEX = NO

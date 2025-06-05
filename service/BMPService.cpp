@@ -3,7 +3,11 @@ Sviridenko Elena st130482@student.spbu.ru
 Loads and processes a BMP raster image, rotates the image 90 clockwise and counterclockwise, applies a Gaussian filter to the image
 */
 #include "BMPService.h"
-
+/**
+ * @brief Rotates the image 90 degrees clockwise.
+ * @param originalImage The original BMP image.
+ * @return Rotated image.
+ */
 BMPImage BMPService::rotateClockwise(BMPImage& originalImage) {
     const BMPInfoHeader originalInfoHeader = originalImage.getInfoHeader();
     const int originalWidth = originalInfoHeader.width;
@@ -14,11 +18,11 @@ BMPImage BMPService::rotateClockwise(BMPImage& originalImage) {
 
     for (int y = 0; y < originalHeight; ++y) {
         for (int x = 0; x < originalWidth; ++x) {
-            int originalIndex = (x + y * originalWidth) * 3; 
+            int originalIndex = (x + y * originalWidth) * 3;
             int rotatedIndex = ((originalWidth - 1 - x) * originalHeight + y) * 3;
-            rotatedPixels[rotatedIndex] = originalPixels[originalIndex]; 
-            rotatedPixels[rotatedIndex + 1] = originalPixels[originalIndex + 1]; 
-            rotatedPixels[rotatedIndex + 2] = originalPixels[originalIndex + 2]; 
+            rotatedPixels[rotatedIndex] = originalPixels[originalIndex];
+            rotatedPixels[rotatedIndex + 1] = originalPixels[originalIndex + 1];
+            rotatedPixels[rotatedIndex + 2] = originalPixels[originalIndex + 2];
         }
     }
 
@@ -39,11 +43,11 @@ BMPImage BMPService::rotateCounterclockwise(BMPImage& originalImage) {
 
     for (int y = 0; y < originalHeight; ++y) {
         for (int x = 0; x < originalWidth; ++x) {
-            int originalIndex = (x + y * originalWidth) * 3; 
+            int originalIndex = (x + y * originalWidth) * 3;
             int rotatedIndex = (x * originalHeight + (originalHeight - 1 - y)) * 3;
-            rotatedPixels[rotatedIndex] = originalPixels[originalIndex]; 
-            rotatedPixels[rotatedIndex + 1] = originalPixels[originalIndex + 1]; 
-            rotatedPixels[rotatedIndex + 2] = originalPixels[originalIndex + 2]; 
+            rotatedPixels[rotatedIndex] = originalPixels[originalIndex];
+            rotatedPixels[rotatedIndex + 1] = originalPixels[originalIndex + 1];
+            rotatedPixels[rotatedIndex + 2] = originalPixels[originalIndex + 2];
         }
     }
 
@@ -56,9 +60,9 @@ BMPImage BMPService::rotateCounterclockwise(BMPImage& originalImage) {
 
 BMPImage BMPService::applyGaussianFilter(BMPImage& image) {
     const float kernel[3][3] = {
-        {0.0625f, 0.125f, 0.0625f},
-        {0.125f, 0.25f, 0.125f},
-        {0.0625f, 0.125f, 0.0625f}
+            {0.0625f, 0.125f, 0.0625f},
+            {0.125f, 0.25f, 0.125f},
+            {0.0625f, 0.125f, 0.0625f}
     };
 
     const BMPInfoHeader infoHeader = image.getInfoHeader();
